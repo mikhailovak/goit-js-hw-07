@@ -25,16 +25,25 @@ function createBoxes(amount) {
     boxes.innerHTML = "";
       sizes = 30;
 
-  for (let i = 0; i < amount; i++) {
-    const boxElement = document.createElement("div");
-    boxElement.style.width = `${sizes}px`;
-    boxElement.style.height = `${sizes}px`;
-    boxElement.style.backgroundColor = getRandomHexColor();
+  let boxesMarkup = "";
 
-    boxes.append(boxElement);
+  for (let i = 0; i < amount; i++) {
+    // const boxElement = document.createElement("div");
+    // boxElement.style.width = `${sizes}px`;
+    // boxElement.style.height = `${sizes}px`;
+    // boxElement.style.backgroundColor = getRandomHexColor();
+
+    // boxes.append(boxElement);
+
+    const boxElement = `<div style="width: ${sizes}px; height: ${sizes}px; background-color: ${getRandomHexColor()}"></div>`;
+
+    boxesMarkup += boxElement;
     sizes += 10;
   }
+
+  boxes.innerHTML = boxesMarkup;
 }
+
 
 function destroyBoxes() {
   boxes.innerHTML = "";
